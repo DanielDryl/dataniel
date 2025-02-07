@@ -8,22 +8,35 @@
         body {
             margin: 0;
             padding: 0;
-            background: #0a0a0a;
+            background: radial-gradient(circle, #1a1a2e, #16213e);
             color: #ffffff;
             font-family: Arial, sans-serif;
             text-align: center;
             overflow: hidden;
+            position: relative;
         }
         .stars {
             position: absolute;
             width: 100%;
             height: 100%;
             background: url('https://cdn.pixabay.com/photo/2013/07/12/12/57/stars-146501_960_720.png') repeat;
-            animation: moveStars 50s linear infinite;
+            animation: moveStars 60s linear infinite;
+        }
+        .clouds {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://cdn.pixabay.com/photo/2016/03/09/09/15/clouds-1245959_960_720.png') repeat;
+            opacity: 0.5;
+            animation: moveClouds 100s linear infinite;
         }
         @keyframes moveStars {
             from { transform: translateY(0); }
             to { transform: translateY(-100%); }
+        }
+        @keyframes moveClouds {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
         }
         .container {
             position: relative;
@@ -35,15 +48,44 @@
         }
         p {
             font-size: 1.2em;
-            opacity: 0.7;
+            opacity: 0.8;
+        }
+        .projects {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .project {
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+        .project:hover {
+            transform: scale(1.1);
+        }
+        .project img {
+            width: 70%;
+            height: auto;
         }
     </style>
 </head>
 <body>
     <div class="stars"></div>
+    <div class="clouds"></div>
     <div class="container">
         <h1>Witaj w moim portfolio</h1>
         <p>Strona w budowie, ale gwiazdy już świecą!</p>
+        <div class="projects">
+            <a href="#" class="project"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Projekt 1"></a>
+            <a href="#" class="project"><img src="https://cdn-icons-png.flaticon.com/512/38/38401.png" alt="Projekt 2"></a>
+            <a href="#" class="project"><img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="Projekt 3"></a>
+        </div>
     </div>
 </body>
 </html>
