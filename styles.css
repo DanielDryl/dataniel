@@ -5,6 +5,8 @@ body {
     padding: 0;
     color: #fff;
     overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
 }
 
 .container {
@@ -15,9 +17,9 @@ body {
     z-index: 2;
 }
 
-/* Night Sky Background */
-.stars, .twinkling {
-    position: absolute;
+/* Full-Height Background */
+.stars, .forest {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -25,24 +27,23 @@ body {
     z-index: 1;
 }
 
+/* Pastel Night Sky with Stars */
 .stars {
-    background: #000 url('https://www.transparenttextures.com/patterns/stardust.png') repeat top center;
-    animation: move-stars 50s linear infinite;
+    background: linear-gradient(to bottom, #1a1a2e, #16213e, #0f3460);
+    animation: twinkle 5s infinite ease-in-out;
 }
 
-.twinkling {
-    background: transparent url('https://www.transparenttextures.com/patterns/starfield.png') repeat top center;
-    animation: move-twinkling 100s linear infinite;
+/* Shining Stars Animation */
+@keyframes twinkle {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
 }
 
-@keyframes move-stars {
-    from { background-position: 0 0; }
-    to { background-position: -10000px 5000px; }
-}
-
-@keyframes move-twinkling {
-    from { background-position: 0 0; }
-    to { background-position: -10000px 5000px; }
+/* Forest Silhouette */
+.forest {
+    background: url('https://www.transparenttextures.com/patterns/forest-silhouette.png') repeat bottom center;
+    background-size: contain;
+    opacity: 0.3;
 }
 
 /* Header Section */
@@ -117,6 +118,8 @@ footer {
     padding: 20px 0;
     background: rgba(0, 0, 0, 0.5);
     margin-top: 60px;
+    position: relative;
+    z-index: 2;
 }
 
 /* Animations */
